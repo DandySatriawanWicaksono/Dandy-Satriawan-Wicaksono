@@ -1,0 +1,44 @@
+Reeborg's World Rain 0
+
+#men-coding robot agar aju sebanyak 6 langkah
+count=6
+while count>0:
+    move()
+    count-=1
+#membangun tembok
+build_wall()
+#men-coding robot agar bisa berputar balik
+turn_left()
+turn_left()
+#membuat robot balik ke "goal"-nya dengan melangkah 5 kali
+count=5
+while count>0:
+    move()
+    count-=1
+
+Reeborg's World Rain 1
+
+#membuat fungsi agar robot bisa berbelok ke kanan
+def turn_right():
+    count=3
+    while count>0:
+        turn_left()
+        count-=1
+#membuat fungsi agar robot bisa membangun tembok
+def bangun_tembok():
+    turn_right()
+    build_wall()
+    turn_left()
+    move()
+#input langkah pertama robot
+move()
+turn_right()
+move()
+#membuat loop agar robot berbelok sendiri, maju sendiri dan membangun robot sendiri
+while not at_goal():
+    if wall_on_right():
+        move()
+    if right_is_clear():
+        bangun_tembok()
+    elif wall_in_front():
+        turn_left()
